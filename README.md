@@ -7,7 +7,7 @@ Gin is a web framework written in Go (Golang). It features a martini-like API wi
 
 ## Contents
 
-- [安装](#installation)
+- [安装](#安装)
 - [Prerequisite](#prerequisite)
 
 ## 安装
