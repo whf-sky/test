@@ -19,19 +19,6 @@ https://github.com/gomodule/redigo/redis
 - [安装](#安装)
 - [快速开始](#快速开始)
 
-## 快速开始
-
-### 快速创建个web、socketio项目:
-#### 创建项目 test
-
-
-
-创建 `/test/main.go`
-```
-
-```
-
-
 ## 安装
 
 1. 首先需要安装 [Go](https://golang.org/) (**version 1.10+ is required**), 可以使用下面的命令进行安装 Gsigo.
@@ -52,11 +39,31 @@ import "github.com/whf-sky/gsigo"
 假设项目目录如下
 
 - test
-  - socket.go
+  - controllers
+    - cmd
+        - test.go
+    - gin
+        - index.go
+    - sio
+      - chat
+        - message.go
+      - root
+        - connect.go
+        - disconnect.go
+        - error.go
+        - notice .go
+  - config
+    - production
+        - system.yml
   - routers
+    - sio.go
     - gin.go
-    - socketio.go
     - cmd.go
+  - static
+    - index.html
+  - sio.go
+  - gin.go
+  - cmd.go
  
 ```sh
 # 假设文件 test/main.go 中有如下代码：
