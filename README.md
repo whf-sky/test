@@ -160,9 +160,181 @@ app.name = "test"
 
 - **app.name**
 
-_应用名称，默认是 beego。通过 bee new 创建的是创建的项目名。_
+_应用名称，默认是 gsigo。_
+
+配置文件中设置
+
+```ini
+app.name = "gsigo"
+````
+
+代码中调用
+
+```go
+gsigo.Config.APP.Name
+````
+
+- **app.debug**
+
+_应用debug，默认是 true。_
+
+配置文件中设置
+
+```ini
+app.debug = true
+````
+
+代码中调用
+
+```go
+gsigo.Config.APP.Debug
+````
 
 
+- **app.host**
+
+_应用HOST，默认是 0.0.0.0_
+
+配置文件中设置
+
+```ini
+app.host = 0.0.0.0
+````
+
+代码中调用
+
+```go
+gsigo.Config.APP.Host
+````
+
+- **app.port**
+
+_应用PORT，默认是 8080。_
+
+配置文件中设置
+
+```ini
+app.port = "8080"
+````
+
+代码中调用
+
+```go
+gsigo.Config.APP.Port
+````
+
+- **app.mode**
+
+_应用模式，默认是 default(默认：gin+socketio)。_
+
+`default` `gin` `cmd`
+
+配置文件中设置
+
+```ini
+app.mode = 'default'
+````
+
+代码中调用
+
+```go
+gsigo.Config.APP.Mode
+````
+
+**SOCKETIO 配置**
+
+- **socket.ping_timeout**
+
+_，ping 超时时间，默认是 60。_
+
+配置文件中设置
+
+```ini
+socket.ping_timeout = 60
+````
+
+代码中调用
+
+```go
+gsigo.Config.Socket.PingTimeout
+````
+
+
+- **socket.ping_interval**
+
+_，ping 时间间隔，默认是 20。_
+
+配置文件中设置
+
+```ini
+socket.ping_interval = 20
+````
+
+代码中调用
+
+```go
+gsigo.Config.Socket.PingInterval
+````
+
+**日志配置**
+
+- **log.hook**
+
+_，日志钩子，默认是 `default`，可自定义钩子。_
+
+`default` `syslog`
+
+配置文件中设置
+
+```ini
+log.hook = "stdout"
+````
+
+代码中调用
+
+```go
+gsigo.Config.Log.Hook
+````
+
+- **log.formatter**
+
+_，日志输出格式，默认是 `text`。_
+
+`text` `json`
+
+配置文件中设置
+
+```ini
+log.formatter = "text"
+````
+
+代码中调用
+
+```go
+gsigo.Config.Log.Formatter
+````
+
+
+- **log.params**
+
+_，日志需要的参数，无默认值。_
+
+`text` `json`
+
+配置文件中设置,syslog例子
+
+```ini
+log.params.priority = "LOG_LOCAL0"
+log.params.tag = ""
+log.params.network = ""
+log.params.addr = ""
+````
+
+代码中调用
+
+```go
+gsigo.Config.Log.params["priority"]
+````
 
 
 ## 环境变量
