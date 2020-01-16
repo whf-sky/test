@@ -20,16 +20,16 @@ https://github.com/gomodule/redigo/redis
 - [快速开始](#快速开始)
 - [配置文件](#配置文件)
     - [应用配置文件](#应用配置文件)
-    - [Redis配置文件](#Redis配置文件)
+    - [REDIS配置文件](#Redis配置文件)
     - [数据库配置文件](#数据库配置文件)
 - [环境变量](#环境变量)  
 - [路由规则](#路由规则)  
-- [web应用](#web应用)  
-- [socketio应用](#socketio应用)
+- [WEB应用](#WEB应用)  
+- [SOCKETIO应用](#SOCKETIO应用)
 - [CMD应用](#CMD应用)  
 - [数据库](#数据库)
-- [Redis](#Redis)
-- [Log](#Log)
+- [REDIS](#REDIS)
+- [日志](#日志)
 
 ## 安装
 
@@ -337,6 +337,11 @@ gsigo.Config.Log.params["priority"]
 ````
 
 
+### Redis配置文件
+
+
+### 数据库配置文件
+
 ## 环境变量
 
 _环境变量的使用示例_
@@ -345,3 +350,18 @@ _环境变量的使用示例_
 ```sh
 $ go run main.go -env=develop
 ````
+
+
+## 路由规则
+
+## web应用
+
+## SOCKETIO应用
+
+## CMD应用
+
+## 数据库
+
+## REDIS
+
+## 日志
