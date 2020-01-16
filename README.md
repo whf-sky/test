@@ -158,17 +158,16 @@ app.name = "test"
 
 **App 配置**
 
-- app.name
+- **app.name**
 
-应用名称，默认是 beego。通过 bee new 创建的是创建的项目名。
+_应用名称，默认是 beego。通过 bee new 创建的是创建的项目名。_
 
 
 
 
 ## 环境变量
 
-环境变量的使用示例
-
+_环境变量的使用示例_
 
 
 ```sh
