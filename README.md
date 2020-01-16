@@ -1,8 +1,8 @@
 # Gsigo Web socketio and cmd Framework
 
-Gsigo是一个用Go (Golang)编写的web、socketio、command框架。
+_Gsigo是一个用Go (Golang)编写的web、socketio、command框架。_
 
-gsigo 主要基于下面的包进行了封装, 保留了原有包的用法
+_gsigo 主要基于下面的包进行了封装, 保留了原有包的用法_
 
 https://github.com/gin-gonic/gin
 
@@ -47,22 +47,22 @@ import "github.com/whf-sky/gsigo"
 
 **如使用go mod包依赖管理工具**
 
-Windows 下开启 GO111MODULE 的命令为：
+_Windows 下开启 GO111MODULE 的命令为：_
 ```sh
 $ set GO111MODULE=on
 ```
 
-MacOS 或者 Linux 下开启 GO111MODULE 的命令为：
+_MacOS 或者 Linux 下开启 GO111MODULE 的命令为：_
 ```sh
 $ export GO111MODULE=on
 ```
 
-Windows 下设置 GOPROXY 的命令为：
+_Windows 下设置 GOPROXY 的命令为：_
 ```sh
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
-MacOS 或 Linux 下设置 GOPROXY 的命令为：
+_MacOS 或 Linux 下设置 GOPROXY 的命令为：_
 ```sh
 $ export GOPROXY=https://goproxy.cn
 ```
@@ -102,7 +102,7 @@ func init() {
 ```
 ## 配置文件
 
-gsigo 默认是不加载配置文件的，配置文件格式.ini文件
+_gsigo 默认是不加载配置文件的，配置文件格式.ini文件_
 
 ### 应用配置文件
 
@@ -131,7 +131,7 @@ log.formatter = "text"
 
 **不同级别的配置：**
 
-当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义
+_当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义_
 
 ```go
 app.name = "gsigo"
@@ -162,13 +162,13 @@ app.name = "test"
 
 _应用名称，默认是 gsigo。_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 app.name = "gsigo"
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.APP.Name
@@ -178,13 +178,13 @@ gsigo.Config.APP.Name
 
 _应用debug，默认是 true。_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 app.debug = true
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.APP.Debug
@@ -195,13 +195,13 @@ gsigo.Config.APP.Debug
 
 _应用HOST，默认是 0.0.0.0_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 app.host = 0.0.0.0
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.APP.Host
@@ -211,13 +211,13 @@ gsigo.Config.APP.Host
 
 _应用PORT，默认是 8080。_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 app.port = "8080"
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.APP.Port
@@ -229,13 +229,13 @@ _应用模式，默认是 default(默认：gin+socketio)。_
 
 `default` `gin` `cmd`
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 app.mode = 'default'
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.APP.Mode
@@ -247,13 +247,13 @@ gsigo.Config.APP.Mode
 
 _，ping 超时时间，默认是 60。_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 socket.ping_timeout = 60
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.Socket.PingTimeout
@@ -264,13 +264,13 @@ gsigo.Config.Socket.PingTimeout
 
 _，ping 时间间隔，默认是 20。_
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 socket.ping_interval = 20
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.Socket.PingInterval
@@ -284,13 +284,13 @@ _，日志钩子，默认是 `default`，可自定义钩子。_
 
 `default` `syslog`
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 log.hook = "stdout"
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.Log.Hook
@@ -302,13 +302,13 @@ _，日志输出格式，默认是 `text`。_
 
 `text` `json`
 
-配置文件中设置
+_配置文件中设置_
 
 ```ini
 log.formatter = "text"
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.Log.Formatter
@@ -321,7 +321,7 @@ _，日志需要的参数，无默认值。_
 
 `text` `json`
 
-配置文件中设置,syslog例子
+_配置文件中设置,syslog例子_
 
 ```ini
 log.params.priority = "LOG_LOCAL0"
@@ -330,7 +330,7 @@ log.params.network = ""
 log.params.addr = ""
 ````
 
-代码中调用
+_代码中调用_
 
 ```go
 gsigo.Config.Log.params["priority"]
