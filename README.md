@@ -28,6 +28,8 @@ https://github.com/jinzhu/gorm
 - [SOCKETIO应用](#SOCKETIO应用)
 - [CMD应用](#CMD应用)  
 - [数据库](#数据库)
+    - [CURD](#CURD)
+    - [MODEL](#MODEL)
 - [REDIS](#REDIS)
 - [日志](#日志)
 - [环境变量](#环境变量)  
@@ -818,8 +820,9 @@ func (this * TestCmd)  Execute(){
 
 > [参考gorm](https://gorm.io/docs/index.html)
 
-
 ###### 代码实现了读写分离操作
+
+### CURD
 
 ######  实例DB
 
@@ -947,7 +950,6 @@ func (d *DB) Row(funcs ...func(db *gorm.DB) *gorm.DB ) *sql.Row
 func (d *DB) Rows(funcs ...func(db *gorm.DB) *gorm.DB ) (*sql.Rows, error)
 ```
 
-
 ###### 运行原始SQL,将结果扫描到另一个结构中。
 ```go
 func (d *DB) Raw(sql string, values ...interface{}) *gorm.DB
@@ -958,7 +960,24 @@ func (d *DB) Raw(sql string, values ...interface{}) *gorm.DB
 func (d *DB) Exec(sql string, values ...interface{}) *gorm.DB
 ```
 
+### MODEL
 
+```go
+type Words struct {
+	Id 			int  	`gorm:"PRIMARY_KEY;AUTO_INCREMENT"`
+	Word 		string	`gorm:"UNIQUE"`
+	Sound 		string
+	Explain 	string
+	Class 		string
+	Example 	string
+	CreateTime 	time.Time
+}
+
+func (w *Words) BeforeCreate(scope *gorm.Scope) error {
+	scope.SetColumn("CreateTime", time.Now())
+	return nil
+}
+```
 
 ## REDIS
 
