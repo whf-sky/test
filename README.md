@@ -45,7 +45,7 @@ $ go get github.com/whf-sky/gsigo
 import "github.com/whf-sky/gsigo"
 ```
 
-**如使用go mod包依赖管理工具**
+如使用go mod包依赖管理工具,请参考下面命令
 
 ###### Windows 下开启 GO111MODULE 的命令为：
 ```sh
@@ -117,7 +117,7 @@ func main()  {
 }
 ```
 
-**不加载配置文件的默认参数：**
+不加载配置文件的默认参数：
 
 ```ini
 app.name = "gsigo"
@@ -161,7 +161,7 @@ app.name = "test"
 [testing]
 ```
 
-**App 配置**
+App 配置
 
 - **app.name**
 
@@ -246,7 +246,7 @@ app.mode = 'default'
 gsigo.Config.APP.Mode
 ````
 
-**SOCKETIO 配置**
+SOCKETIO配置
 
 - **socket.ping_timeout**
 
@@ -281,7 +281,7 @@ socket.ping_interval = 20
 gsigo.Config.Socket.PingInterval
 ````
 
-**日志配置**
+日志配置
 
 - **log.hook**
 
