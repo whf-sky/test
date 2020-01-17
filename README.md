@@ -824,6 +824,8 @@ func (this * TestCmd)  Execute(){
 
 ### CURD
 
+[MODEL详细文档](https://gorm.io/docs/models.html)
+
 ######  实例DB
 
 ```go
@@ -835,6 +837,10 @@ NewDB(gname ...string) *DB
 ```go
 func (d *DB) Using(gname ...string) *DB
 ```
+
+#### 事务
+
+[gorm 事务 文档](https://gorm.io/docs/transactions.html)
 
 ###### 回调函数中使用事务
 
@@ -848,6 +854,8 @@ func (d *DB) Transaction (fc func(tx *transaction) error) (err error)
 func (d *DB) Begin() *transaction 
 ```
 
+#### 主从强制切换
+
 ###### 强制切换到主库
 
 ```go
@@ -860,6 +868,11 @@ func (d *DB) Master() *DB
 func (d *DB) Slave() *DB 
 ```
 
+#### Create
+
+[gorm Create 文档](https://gorm.io/docs/create.html)
+
+
 ###### 插入数据
 
 ```go
@@ -869,11 +882,19 @@ func (d *DB) Create(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *go
 func (d *DB) Insert(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+#### Delete
+
+[gorm Delete 文档](https://gorm.io/docs/delete.html)
+
 ###### 删除数据
 
 ```go
 func (d *DB) Delete(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
+
+#### Update
+
+[gorm Update 文档](https://gorm.io/docs/update.html)
 
 ###### 改变单个字段
 
@@ -892,6 +913,11 @@ func (d *DB) Updates(values interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *
 ```go
 func (d *DB) UpdateColumn(attrs []interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
+
+#### Query
+
+[gorm Query 文档](https://gorm.io/docs/query.html)
+
 
 ###### 查询第一条数据，按主键正序排序
 ```go
@@ -933,6 +959,9 @@ func (d *DB) Count(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gor
 ```go
 func (d *DB) Pluck(column string, value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
+#### 原生sql
+
+[gorm raw 文档](https://gorm.io/docs/query.html)
 
 ###### 将结果扫描到另一个结构中。
 
@@ -962,20 +991,16 @@ func (d *DB) Exec(sql string, values ...interface{}) *gorm.DB
 
 ### MODEL
 
+[gorm Models 详细文档](https://gorm.io/docs/models.html)
+
 ```go
-type Words struct {
-	Id 			int  	`gorm:"PRIMARY_KEY;AUTO_INCREMENT"`
-	Word 		string	`gorm:"UNIQUE"`
-	Sound 		string
-	Explain 	string
-	Class 		string
-	Example 	string
-	CreateTime 	time.Time
+type Test struct {
+    Id 			int  	`gorm:"PRIMARY_KEY;AUTO_INCREMENT"`
 }
 
 func (w *Words) BeforeCreate(scope *gorm.Scope) error {
-	scope.SetColumn("CreateTime", time.Now())
-	return nil
+    scope.SetColumn("CreateTime", time.Now())
+    return nil
 }
 ```
 
