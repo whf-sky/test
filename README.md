@@ -421,7 +421,7 @@ slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&
 ### WEB路由规则
 
 
-- 分组
+##### 分组
 
 ```go
 gsigo.Group("url路径")
@@ -446,7 +446,7 @@ func init()  {
 }
 ```
 
-- 使用中间件
+##### 使用中间件
 
 ```go
 gsigo.Use(func(c *gin.Context) {
@@ -454,7 +454,7 @@ gsigo.Use(func(c *gin.Context) {
 })
 ```
 
-- 静态文件路由规则
+##### 静态文件路由规则
 
 ```go
 gsigo.Static("url路径", "本地目录")
