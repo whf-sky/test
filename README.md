@@ -786,6 +786,31 @@ func (e *Event) GetError() error
 
 ## CMD应用
 
+##### 示例
+
+```go
+package cmd
+
+import (
+	"fmt"
+	"github.com/whf-sky/gsigo"
+)
+
+type TestCmd struct {
+	gsigo.Cmd
+}
+
+func (this * TestCmd)  Execute(){
+	for {
+	    fmt.Println("test")	
+	}  
+}
+
+```
+##### 可定义的方法
+
+- `Execute` 执行方法
+
 ## 数据库
 
 ## REDIS
