@@ -105,9 +105,9 @@ func init() {
 
 ###### gsigo 默认是不加载配置文件的，配置文件格式.ini文件
 
-### 应用配置文件
+> 应用配置文件
 
-#### 配置文件的使用
+配置文件的使用
 
 ```go
 package main
@@ -117,7 +117,7 @@ func main()  {
 }
 ```
 
-不加载配置文件的默认参数：
+> 不加载配置文件的默认参数：
 
 ```ini
 app.name = "gsigo"
@@ -134,7 +134,7 @@ log.formatter = "text"
 ```
 
 
-不同级别的配置：
+> 不同级别的配置：
 
 ###### 当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义
 
@@ -161,7 +161,7 @@ app.name = "test"
 [testing]
 ```
 
-App 配置
+> App 配置
 
 - **app.name**
 
@@ -246,7 +246,7 @@ app.mode = 'default'
 gsigo.Config.APP.Mode
 ````
 
-SOCKETIO配置
+> SOCKETIO配置
 
 - **socket.ping_timeout**
 
@@ -281,7 +281,7 @@ socket.ping_interval = 20
 gsigo.Config.Socket.PingInterval
 ````
 
-日志配置
+> 日志配置
 
 - **log.hook**
 
