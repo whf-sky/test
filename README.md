@@ -1028,6 +1028,8 @@ func (r *Redis) Script(keyCount int, src string) *script
 
 ## 日志
 
+> [参考logrus](https://github.com/sirupsen/logrus)
+
 ## 环境变量
 
 ###### 环境变量的使用示例
