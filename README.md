@@ -850,6 +850,9 @@ func (d *DB) Slave() *DB
 ###### 插入数据
 
 ```go
+func (d *DB) Create(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+
+//Create别名
 func (d *DB) Insert(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
@@ -859,70 +862,88 @@ func (d *DB) Insert(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *go
 func (d *DB) Delete(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
-###### 
+###### 改变单个字段
 
 ```go
 func (d *DB) Update(attrs []interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
-###### 
+###### 修改多个字段
 
 ```go
 func (d *DB) Updates(values interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 修改列数据
+
 ```go
 func (d *DB) UpdateColumn(attrs []interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 查询第一条数据，按主键正序排序
 ```go
 func (d *DB) First(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
+
+###### 获取一条记录，没有指定的顺序
 
 ```go
 func (d *DB) Take(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 获取最后一条数据，按照主键倒叙排序
 ```go
 func (d *DB) Last(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 获取多条数据
 ```go
 func (d *DB) Find(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 获取第一个匹配的记录，或者在给定条件下初始化一个新记录(只适用于结构，映射条件)
 ```go
 func (d *DB) FirstOrInit(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 获取第一个匹配的记录，或者在给定的条件下创建一个新的记录(只适用于struct, map条件)
 ```go
 func (d *DB) FirstOrCreate(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
+###### 获取一个模型有多少条记录
 ```go
 func (d *DB) Count(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
 
-```go
-func (d *DB) Row(funcs ...func(db *gorm.DB) *gorm.DB ) *sql.Row
-```
-
-```go
-func (d *DB) Rows(funcs ...func(db *gorm.DB) *gorm.DB ) (*sql.Rows, error)
-```
-
+###### 从模型中查询单个列作为映射，如果您想要查询多个列，则应该使用Scan
 ```go
 func (d *DB) Pluck(column string, value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
 ```
+
+###### 将结果扫描到另一个结构中。
 
 ```go
 func (d *DB) Scan(dest interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB
 ```
 
+###### 运行原始SQL,单条查询，它不能与其他方法链接
+```go
+func (d *DB) Row(funcs ...func(db *gorm.DB) *gorm.DB ) *sql.Row
+```
+
+###### 运行原始SQL,多条查询，它不能与其他方法链接
+```go
+func (d *DB) Rows(funcs ...func(db *gorm.DB) *gorm.DB ) (*sql.Rows, error)
+```
+
+
+###### 运行原始SQL,将结果扫描到另一个结构中。
 ```go
 func (d *DB) Raw(sql string, values ...interface{}) *gorm.DB
 ```
 
+###### 运行原始SQL,执行影响操作的SQL
 ```go
 func (d *DB) Exec(sql string, values ...interface{}) *gorm.DB
 ```
