@@ -217,7 +217,7 @@ gsigo.Config.APP.Host
 app.port = "8080"
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.APP.Port
@@ -225,17 +225,17 @@ gsigo.Config.APP.Port
 
 - **app.mode**
 
-应用模式，默认是 default(默认：gin+socketio)。
+###### 应用模式，默认是 default(默认：gin+socketio)。
 
 `default` `gin` `cmd`
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 app.mode = 'default'
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.APP.Mode
@@ -245,15 +245,15 @@ gsigo.Config.APP.Mode
 
 - **socket.ping_timeout**
 
-ping 超时时间，默认是 60。
+###### ping 超时时间，默认是 60。
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 socket.ping_timeout = 60
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.Socket.PingTimeout
@@ -262,15 +262,15 @@ gsigo.Config.Socket.PingTimeout
 
 - **socket.ping_interval**
 
-ping 时间间隔，默认是 20。
+###### ping 时间间隔，默认是 20。
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 socket.ping_interval = 20
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.Socket.PingInterval
@@ -280,17 +280,17 @@ gsigo.Config.Socket.PingInterval
 
 - **log.hook**
 
-日志钩子，默认是 `default`，可自定义钩子。
+###### 日志钩子，默认是 `default`，可自定义钩子。
 
 `default` `syslog`
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 log.hook = "stdout"
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.Log.Hook
@@ -298,17 +298,17 @@ gsigo.Config.Log.Hook
 
 - **log.formatter**
 
-日志输出格式，默认是 `text`。
+###### 日志输出格式，默认是 `text`。
 
 `text` `json`
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 log.formatter = "text"
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.Log.Formatter
@@ -317,11 +317,11 @@ gsigo.Config.Log.Formatter
 
 - **log.params**
 
-日志需要的参数，无默认值.
+###### 日志需要的参数，无默认值.
 
 `text` `json`
 
-配置文件中设置,syslog例子
+###### 配置文件中设置,syslog例子
 
 ```ini
 log.params.priority = "LOG_LOCAL0"
@@ -330,7 +330,7 @@ log.params.network = ""
 log.params.addr = ""
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.Log.params["priority"]
@@ -358,7 +358,7 @@ gsigo.Config.Log.params["priority"]
 
 ## 环境变量
 
-环境变量的使用示例
+###### 环境变量的使用示例
 
 ```sh
 $ go run main.go -env=develop
