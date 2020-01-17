@@ -3,7 +3,7 @@
 <font color=gray size=12>Gsigo是一个用Go (Golang)编写的web、socketio、command框架。</font>
 
 
-gsigo 主要基于下面的包进行了封装, 保留了原有包的用法
+<font color=gray size=12>gsigo 主要基于下面的包进行了封装, 保留了原有包的用法</font>
 
 https://github.com/gin-gonic/gin
 
