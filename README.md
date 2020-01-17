@@ -696,7 +696,13 @@ func (this *MsgEvent) Execute() {
 ```
 ##### 结构体定义必须内嵌`gsigo.Event`结构体
 
-##### `Execute` 执行方法
+##### 可定义的方法
+
+- `Execute` 执行方法
+
+- `Prepare()` 在执行 `Execute` 前执行
+
+- `Finish()` 在执行 `Execute` 后执行
 
 ##### 可用属性
 
@@ -713,11 +719,7 @@ type Event struct {
 }
 ```
 
-##### 可定义的方法
 
-- `Prepare()` 在执行 `Execute` 前执行
-
-- `Finish()` 在执行 `Execute` 后执行
 
 ##### 可调用方法
 
