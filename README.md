@@ -4,7 +4,7 @@
 
 ###### gsigo 主要基于下面的包进行了封装, 保留了原有包的用法
 
-###### https://github.com/gin-gonic/gin
+https://github.com/gin-gonic/gin
 
 https://github.com/googollee/go-socket.io
 
@@ -39,7 +39,7 @@ https://github.com/gomodule/redigo/redis
 $ go get github.com/whf-sky/gsigo
 ```
 
-2. 导入你的代码
+###### 2. 导入你的代码
 
 ```go
 import "github.com/whf-sky/gsigo"
@@ -47,22 +47,22 @@ import "github.com/whf-sky/gsigo"
 
 **如使用go mod包依赖管理工具**
 
-Windows 下开启 GO111MODULE 的命令为：
+###### Windows 下开启 GO111MODULE 的命令为：
 ```sh
 $ set GO111MODULE=on
 ```
 
-MacOS 或者 Linux 下开启 GO111MODULE 的命令为：
+###### MacOS 或者 Linux 下开启 GO111MODULE 的命令为：
 ```sh
 $ export GO111MODULE=on
 ```
 
-Windows 下设置 GOPROXY 的命令为：_
+###### Windows 下设置 GOPROXY 的命令为：
 ```sh
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
-MacOS 或 Linux 下设置 GOPROXY 的命令为：
+###### MacOS 或 Linux 下设置 GOPROXY 的命令为：
 ```sh
 $ export GOPROXY=https://goproxy.cn
 ```
@@ -102,7 +102,7 @@ func init() {
 ```
 ## 配置文件
 
-gsigo 默认是不加载配置文件的，配置文件格式.ini文件
+###### gsigo 默认是不加载配置文件的，配置文件格式.ini文件
 
 ### 应用配置文件
 
@@ -131,7 +131,7 @@ log.formatter = "text"
 
 **不同级别的配置：**
 
-当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义
+###### 当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义
 
 ```go
 app.name = "gsigo"
@@ -160,15 +160,15 @@ app.name = "test"
 
 - **app.name**
 
-应用名称，默认是 gsigo。
+###### 应用名称，默认是 gsigo。
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 app.name = "gsigo"
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.APP.Name
@@ -176,15 +176,15 @@ gsigo.Config.APP.Name
 
 - **app.debug**
 
-应用debug，默认是 true。
+###### 应用debug，默认是 true。
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 app.debug = true
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.APP.Debug
@@ -193,15 +193,15 @@ gsigo.Config.APP.Debug
 
 - **app.host**
 
-应用HOST，默认是 0.0.0.0
+###### 应用HOST，默认是 0.0.0.0
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 app.host = 0.0.0.0
 ````
 
-代码中调用
+###### 代码中调用
 
 ```go
 gsigo.Config.APP.Host
@@ -209,9 +209,9 @@ gsigo.Config.APP.Host
 
 - **app.port**
 
-应用PORT，默认是 8080。
+###### 应用PORT，默认是 8080。
 
-配置文件中设置
+###### 配置文件中设置
 
 ```ini
 app.port = "8080"
