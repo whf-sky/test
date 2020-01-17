@@ -45,7 +45,7 @@ $ go get github.com/whf-sky/gsigo
 import "github.com/whf-sky/gsigo"
 ```
 
-**如使用go mod包依赖管理工具**
+##### 如使用go mod包依赖管理工具
 
 ###### Windows 下开启 GO111MODULE 的命令为：
 ```sh
