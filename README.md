@@ -813,9 +813,125 @@ func (this * TestCmd)  Execute(){
 
 ## 数据库
 
+###### 代码实现了读写分离操作
+
+######  实例DB
+
+###### 使用配置的组，如不使用`NewDB`需自己实例化使用此方法
+
+```go
+func (d *DB) Using(gname ...string) *DB
+```
+
+###### 回调函数中使用事务
+
+```go
+func (d *DB) Transaction (fc func(tx *transaction) error) (err error) 
+```
+
+###### 开启事务
+
+```go
+func (d *DB) Begin() *transaction 
+```
+
+###### 强制切换到主库
+
+```go
+func (d *DB) Master() *DB 
+```
+
+###### 强制切换到从库
+
+```go
+func (d *DB) Slave() *DB 
+```
+
+###### 插入数据
+
+```go
+func (d *DB) Insert(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+###### 删除数据
+
+```go
+func (d *DB) Delete(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+###### 
+
+```go
+func (d *DB) Update(attrs []interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+###### 
+
+```go
+func (d *DB) Updates(values interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) UpdateColumn(attrs []interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) First(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Take(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Last(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Find(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) FirstOrInit(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) FirstOrCreate(out interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Count(value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Row(funcs ...func(db *gorm.DB) *gorm.DB ) *sql.Row
+```
+
+```go
+func (d *DB) Rows(funcs ...func(db *gorm.DB) *gorm.DB ) (*sql.Rows, error)
+```
+
+```go
+func (d *DB) Pluck(column string, value interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB 
+```
+
+```go
+func (d *DB) Scan(dest interface{}, funcs ...func(db *gorm.DB) *gorm.DB ) *gorm.DB
+```
+
+```go
+func (d *DB) Raw(sql string, values ...interface{}) *gorm.DB
+```
+
+```go
+func (d *DB) Exec(sql string, values ...interface{}) *gorm.DB
+```
+
+
+
 ## REDIS
 
-代码实现了读写分离操作
+###### 代码实现了读写分离操作
 
 ######  实例redis,传组信息
 ```go
