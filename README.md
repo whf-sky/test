@@ -815,6 +815,68 @@ func (this * TestCmd)  Execute(){
 
 ## REDIS
 
+代码实现了读写分离操作
+
+######  实例redis,传组信息
+```go
+redis.NewRedis("组名")
+```
+
+###### 使用的redis配置的组，如不使用`redis.NewRedis`需自己实例化使用此方法
+
+```go
+func (d *Redis) Using(gname ...string) *Redis 
+```
+
+###### 强制切换到主库
+
+```go
+func (r *Redis) Master() *Redis
+```
+
+###### 强制切换到从库
+
+```go
+func (r *Redis) Slave() *Redis{
+```
+
+###### 执行命令
+
+```go
+func (r *Redis) Do(cmd string, args ...interface{}) (reply interface{}, err error)
+```
+
+###### 将命令写入客户机的输出缓冲区
+
+```go
+func (r *Redis) Send(commandName string, args ...interface{}) error
+```
+
+###### 将输出缓冲区刷新到Redis服务器。
+
+```go
+func (r *Redis) Flush() error
+```
+
+###### 接收来自Redis服务器的单个回复
+
+```go
+func (r *Redis) Receive() (reply interface{}, err error) 
+```
+
+
+###### 发布订阅
+
+```go
+func (r *Redis) PubSub() redis.PubSubConn
+```
+
+###### 返回一个新的脚本对象
+
+```go
+func (r *Redis) Script(keyCount int, src string) *script
+```
+
 ## 日志
 
 ## 环境变量
