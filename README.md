@@ -107,7 +107,7 @@ func init() {
 
 ### 应用配置文件
 
-#### 配置文件的使用
+配置文件的使用
 
 ```go
 package main
@@ -163,7 +163,7 @@ app.name = "test"
 
 App 配置
 
-- **app.name**
+- app.name
 
 ###### 应用名称，默认是 gsigo。
 
@@ -179,7 +179,7 @@ app.name = "gsigo"
 gsigo.Config.APP.Name
 ````
 
-- **app.debug**
+- app.debug
 
 ###### 应用debug，默认是 true。
 
@@ -196,7 +196,7 @@ gsigo.Config.APP.Debug
 ````
 
 
-- **app.host**
+- app.host
 
 ###### 应用HOST，默认是 0.0.0.0
 
@@ -212,7 +212,7 @@ app.host = 0.0.0.0
 gsigo.Config.APP.Host
 ````
 
-- **app.port**
+- app.port
 
 ###### 应用PORT，默认是 8080。
 
@@ -228,7 +228,7 @@ app.port = "8080"
 gsigo.Config.APP.Port
 ````
 
-- **app.mode**
+- app.mode
 
 ###### 应用模式，默认是 default(默认：gin+socketio)。
 
@@ -283,7 +283,7 @@ gsigo.Config.Socket.PingInterval
 
 日志配置
 
-- **log.hook**
+- log.hook
 
 ###### 日志钩子，默认是 `default`，可自定义钩子。
 
@@ -301,7 +301,7 @@ log.hook = "stdout"
 gsigo.Config.Log.Hook
 ````
 
-- **log.formatter**
+- log.formatter
 
 ###### 日志输出格式，默认是 `text`。
 
@@ -320,7 +320,7 @@ gsigo.Config.Log.Formatter
 ````
 
 
-- **log.params**
+- log.params
 
 ###### 日志需要的参数，无默认值.
 
