@@ -45,7 +45,7 @@ $ go get github.com/whf-sky/gsigo
 import "github.com/whf-sky/gsigo"
 ```
 
-#### 如使用go mod包依赖管理工具
+**如使用go mod包依赖管理工具**
 
 ###### Windows 下开启 GO111MODULE 的命令为：
 ```sh
@@ -71,8 +71,9 @@ $ export GOPROXY=https://goproxy.cn
 
 ## 快速开始
 
+###### 假设文件 main.go 中有如下代码：
+
 ```sh
-# 假设文件 main.go 中有如下代码：
 $ cat main.go
 ```
 
@@ -106,10 +107,14 @@ func init() {
 
 ### 应用配置文件
 
-**配置文件的使用**
+#### 配置文件的使用
 
 ```go
-gsigo.Run("./config/.app.ini")
+package main
+
+func main()  {
+    gsigo.Run("./config/.app.ini")
+}
 ```
 
 **不加载配置文件的默认参数：**
@@ -335,7 +340,6 @@ log.params.addr = ""
 ```go
 gsigo.Config.Log.params["priority"]
 ````
-
 
 ### REDIS配置文件
 
