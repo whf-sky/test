@@ -1,7 +1,6 @@
 # Gsigo Web socketio and cmd Framework
 
-<font color=gray size=10>Gsigo是一个用Go (Golang)编写的web、socketio、command框架。</font>
-
+Gsigo是一个用Go (Golang)编写的web、socketio、command框架。
 
 gsigo 主要基于下面的包进行了封装, 保留了原有包的用法
 
@@ -23,7 +22,6 @@ https://github.com/gomodule/redigo/redis
     - [应用配置文件](#应用配置文件)
     - [REDIS配置文件](#Redis配置文件)
     - [数据库配置文件](#数据库配置文件)
-- [环境变量](#环境变量)  
 - [路由规则](#路由规则)  
 - [WEB应用](#WEB应用)  
 - [SOCKETIO应用](#SOCKETIO应用)
@@ -31,6 +29,7 @@ https://github.com/gomodule/redigo/redis
 - [数据库](#数据库)
 - [REDIS](#REDIS)
 - [日志](#日志)
+- [环境变量](#环境变量)  
 
 ## 安装
 
@@ -46,24 +45,24 @@ $ go get github.com/whf-sky/gsigo
 import "github.com/whf-sky/gsigo"
 ```
 
-> **如使用go mod包依赖管理工具**
+**如使用go mod包依赖管理工具**
 
-_Windows 下开启 GO111MODULE 的命令为：_
+Windows 下开启 GO111MODULE 的命令为：
 ```sh
 $ set GO111MODULE=on
 ```
 
-_MacOS 或者 Linux 下开启 GO111MODULE 的命令为：_
+MacOS 或者 Linux 下开启 GO111MODULE 的命令为：
 ```sh
 $ export GO111MODULE=on
 ```
 
-_Windows 下设置 GOPROXY 的命令为：_
+Windows 下设置 GOPROXY 的命令为：_
 ```sh
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
-_MacOS 或 Linux 下设置 GOPROXY 的命令为：_
+MacOS 或 Linux 下设置 GOPROXY 的命令为：
 ```sh
 $ export GOPROXY=https://goproxy.cn
 ```
@@ -103,7 +102,7 @@ func init() {
 ```
 ## 配置文件
 
-_gsigo 默认是不加载配置文件的，配置文件格式.ini文件_
+gsigo 默认是不加载配置文件的，配置文件格式.ini文件
 
 ### 应用配置文件
 
@@ -132,7 +131,7 @@ log.formatter = "text"
 
 **不同级别的配置：**
 
-_当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义_
+当使用环境变量时，当前环境变量会替换调公共环境变量信息，环境变量需自定义
 
 ```go
 app.name = "gsigo"
@@ -161,15 +160,15 @@ app.name = "test"
 
 - **app.name**
 
-_应用名称，默认是 gsigo。_
+应用名称，默认是 gsigo。
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 app.name = "gsigo"
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.APP.Name
@@ -177,15 +176,15 @@ gsigo.Config.APP.Name
 
 - **app.debug**
 
-_应用debug，默认是 true。_
+应用debug，默认是 true。
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 app.debug = true
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.APP.Debug
@@ -194,15 +193,15 @@ gsigo.Config.APP.Debug
 
 - **app.host**
 
-_应用HOST，默认是 0.0.0.0_
+应用HOST，默认是 0.0.0.0
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 app.host = 0.0.0.0
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.APP.Host
@@ -210,15 +209,15 @@ gsigo.Config.APP.Host
 
 - **app.port**
 
-_应用PORT，默认是 8080。_
+应用PORT，默认是 8080。
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 app.port = "8080"
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.APP.Port
@@ -226,17 +225,17 @@ gsigo.Config.APP.Port
 
 - **app.mode**
 
-_应用模式，默认是 default(默认：gin+socketio)。_
+应用模式，默认是 default(默认：gin+socketio)。
 
 `default` `gin` `cmd`
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 app.mode = 'default'
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.APP.Mode
@@ -246,15 +245,15 @@ gsigo.Config.APP.Mode
 
 - **socket.ping_timeout**
 
-_，ping 超时时间，默认是 60。_
+ping 超时时间，默认是 60。
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 socket.ping_timeout = 60
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.Socket.PingTimeout
@@ -263,15 +262,15 @@ gsigo.Config.Socket.PingTimeout
 
 - **socket.ping_interval**
 
-_，ping 时间间隔，默认是 20。_
+ping 时间间隔，默认是 20。
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 socket.ping_interval = 20
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.Socket.PingInterval
@@ -281,17 +280,17 @@ gsigo.Config.Socket.PingInterval
 
 - **log.hook**
 
-_，日志钩子，默认是 `default`，可自定义钩子。_
+日志钩子，默认是 `default`，可自定义钩子。
 
 `default` `syslog`
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 log.hook = "stdout"
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.Log.Hook
@@ -299,17 +298,17 @@ gsigo.Config.Log.Hook
 
 - **log.formatter**
 
-_，日志输出格式，默认是 `text`。_
+日志输出格式，默认是 `text`。
 
 `text` `json`
 
-_配置文件中设置_
+配置文件中设置
 
 ```ini
 log.formatter = "text"
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.Log.Formatter
@@ -318,11 +317,11 @@ gsigo.Config.Log.Formatter
 
 - **log.params**
 
-_，日志需要的参数，无默认值。_
+日志需要的参数，无默认值.
 
 `text` `json`
 
-_配置文件中设置,syslog例子_
+配置文件中设置,syslog例子
 
 ```ini
 log.params.priority = "LOG_LOCAL0"
@@ -331,31 +330,21 @@ log.params.network = ""
 log.params.addr = ""
 ````
 
-_代码中调用_
+代码中调用
 
 ```go
 gsigo.Config.Log.params["priority"]
 ````
 
 
-### Redis配置文件
+### REDIS配置文件
 
 
 ### 数据库配置文件
 
-## 环境变量
-
-_环境变量的使用示例_
-
-
-```sh
-$ go run main.go -env=develop
-````
-
-
 ## 路由规则
 
-## web应用
+## WEB应用
 
 ## SOCKETIO应用
 
@@ -366,3 +355,11 @@ $ go run main.go -env=develop
 ## REDIS
 
 ## 日志
+
+## 环境变量
+
+环境变量的使用示例
+
+```sh
+$ go run main.go -env=develop
+````
