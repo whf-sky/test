@@ -347,15 +347,21 @@ gsigo.Config.Log.params["priority"]
 ```ini
 ;分组
 [redis]
+;链接地址
 address = 127.0.0.1:6379
+;redis密码
 password =
+;redis库
 select = 0
+;保持链接时间，单位小时
 keep_alive = 10
+;连接池，开启链接数量
 max_idle = 10
-
+;主
 master.address = 127.0.0.1:6379
 master.max_idle = 10
 
+;从
 slave.max_idle = 10
 slave.address[] = 127.0.0.1:6379
 slave.address[] = 127.0.0.1:6379
@@ -363,6 +369,34 @@ slave.address[] = 127.0.0.1:6379
 ```
 
 ### 数据库配置文件
+
+```ini
+;分组
+[english]
+;数据库驱动
+driver = mysql
+;数据库dsn
+dsn = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&loc=Local
+;打开到数据库的最大连接数。
+max_open =  20
+;空闲连接池中的最大连接数
+max_idle = 10
+;可重用连接的最大时间
+max_lifetime = 1
+
+;主库
+master.dsn = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&loc=Local
+master.max_open =  20
+master.max_idle = 10
+
+;从库
+slave.max_open =  20
+slave.max_idle = 10
+slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&loc=Local
+slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&loc=Local
+slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&loc=Local
+
+```
 
 ## 路由规则
 
