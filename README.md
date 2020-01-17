@@ -12,8 +12,6 @@ https://github.com/sirupsen/logrus
 
 https://github.com/jinzhu/gorm
 
-https://github.com/gomodule/redigo/redis
-
 # 目录
 
 - [安装](#安装)
@@ -420,6 +418,7 @@ slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&
 
 ### WEB路由规则
 
+> [参考gin](https://github.com/gin-gonic/gin)
 
 ##### 分组
 
@@ -594,6 +593,8 @@ gsigo.CmdRouter(cmd CmdInterface) *router
 
 ## WEB应用
 
+> [参考gin](https://github.com/gin-gonic/gin)
+
 ###### 遵循RESTFUL设计风格和开发方式
 
 ##### 示例
@@ -675,6 +676,8 @@ func (c *Controller) GetAction() string
 ```
 
 ## SOCKETIO应用
+
+> [参考socket.io](https://github.com/googollee/go-socket.io)
 
 ##### 示例
 
@@ -813,9 +816,16 @@ func (this * TestCmd)  Execute(){
 
 ## 数据库
 
+> [参考gorm](https://gorm.io/docs/index.html)
+
+
 ###### 代码实现了读写分离操作
 
 ######  实例DB
+
+```go
+NewDB(gname ...string) *DB 
+```
 
 ###### 使用配置的组，如不使用`NewDB`需自己实例化使用此方法
 
@@ -951,6 +961,8 @@ func (d *DB) Exec(sql string, values ...interface{}) *gorm.DB
 
 
 ## REDIS
+
+> [参考redis](https://github.com/gomodule/redigo/redis)
 
 ###### 代码实现了读写分离操作
 
