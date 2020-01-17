@@ -344,6 +344,9 @@ gsigo.Config.Log.params["priority"]
 ````
 
 ### REDIS配置文件
+
+###### 存放路径 项目目录/config/`gsigo.ENV`/redis.ini
+
 ```ini
 ;分组
 [redis]
@@ -375,6 +378,8 @@ slave.address[] = 127.0.0.1:6379
 ```
 
 ### 数据库配置文件
+
+###### 存放路径 项目目录/config/`gsigo.ENV`/database.ini
 
 ```ini
 ;分组
