@@ -424,7 +424,7 @@ slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&
 ##### 分组
 
 ```go
-gsigo.Group("url路径")
+gsigo.(relativePath string, controller ...ControllerInterface) *router
 ```
 
 ###### 示例
@@ -457,21 +457,142 @@ gsigo.Use(func(c *gin.Context) {
 ##### 静态文件路由规则
 
 ```go
-gsigo.Static("url路径", "本地目录")
+gsigo.Static(relativePath string, filePath string)
 ```
 
+##### POST
 
+```go
+gsigo.POST(relativePath string, controller ControllerInterface)
+```
+##### GET
 
+```go
+gsigo.GET(relativePath string, controller ControllerInterface)
+```
+
+##### DELETE
+
+```go
+gsigo.DELETE(relativePath string, controller ControllerInterface)
+```
+
+##### PATCH
+
+```go
+gsigo.PATCH(relativePath string, controller ControllerInterface)
+```
+##### PUT
+
+```go
+gsigo.PUT(relativePath string, controller ControllerInterface)
+```
+
+##### OPTIONS
+
+```go
+gsigo.OPTIONS(relativePath string, controller ControllerInterface)
+```
+
+##### HEAD
+
+```go
+gsigo.HEAD(relativePath string, controller ControllerInterface)
+```
+
+##### Any
+
+`GET, POST, PUT, PATCH, HEAD, OPTIONS, DELETE, CONNECT, TRACE`
+
+```go
+gsigo.Any(relativePath string, controller ControllerInterface)
+```
 
 ### SOCKETIO路由规则
 
+###### 示例
+
+```go
+package routers
+
+import (
+	"github.com/whf-sky/gsigo"
+	"test/controllers/sio/chat"
+	"test/controllers/sio/root"
+)
+
+func init()  {
+	rootRouter := gsigo.Nsp("/")
+	{
+		rootRouter.OnConnect(&root.ConnectEvent{})
+		rootRouter.OnDisconnect(&root.DisconnectEvent{})
+		rootRouter.OnError(&root.ErrorEvent{})
+		rootRouter.OnEvent("notice", &root.NoticeEvent{})
+		rootRouter.OnEvent("bye", &root.ByeEvent{})
+	}
+
+	chatRouter := gsigo.Nsp("/chat")
+	{
+		//如需要ack需要按照如下设置，否则不设置
+		chatRouter.OnEvent("msg", &chat.MsgEvent{gsigo.Event{Ack: true},})
+	}
+
+}
+```
+
+##### Nsp 命名空间相当于WEB组
+
+```go
+gsigo.Nsp(nsp string, event ...EventInterface) *router
+```
+
+##### OnConnect
+
+```go
+gsigo.OnConnect(event EventInterface)
+```
+
+##### OnEvent
+
+```go
+gsigo.OnEvent(eventName string, event EventInterface)
+```
 
 
+##### OnError
+
+```go
+gsigo.OnError(event EventInterface)
+```
+
+##### OnDisconnect
+
+```go
+gsigo.OnDisconnect(event EventInterface)
+```
 
 ### CMD路由规则
 
+###### 示例
 
+```go
 
+package routers
+
+import (
+	"github.com/whf-sky/gsigo"
+	"test/controllers/cmd"
+)
+
+func init()  {
+	gsigo.CmdRouter(&cmd.TestCmd{})
+}
+
+```
+
+```go
+gsigo.CmdRouter(cmd CmdInterface) *router
+```
 
 ## WEB应用
 
