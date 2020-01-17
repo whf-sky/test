@@ -424,7 +424,7 @@ slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&
 ##### 分组
 
 ```go
-gsigo.(relativePath string, controller ...ControllerInterface) *router
+gsigo.Group(relativePath string, controller ...ControllerInterface) *router
 ```
 
 ###### 示例
@@ -449,9 +449,7 @@ func init()  {
 ##### 使用中间件
 
 ```go
-gsigo.Use(func(c *gin.Context) {
-	//代码
-})
+gsigo.Use(controller ControllerInterface)
 ```
 
 ##### 静态文件路由规则
@@ -596,7 +594,86 @@ gsigo.CmdRouter(cmd CmdInterface) *router
 
 ## WEB应用
 
+###### 遵循RESTFUL设计风格和开发方式
+
+##### 示例
+
+```go
+package index
+
+import (
+	"github.com/whf-sky/gsigo"
+	"net/http"
+)
+
+type IndexController struct {
+	gsigo.Controller
+}
+
+func (this *IndexController) Get() {
+	this.Ctx.String(http.StatusOK, "test")
+}
+```
+
+##### 可定义的Action，参考gin
+
+- `Get()`
+
+- `Post()`
+
+- `Delete()`
+
+- `Put()`
+
+- `Head()`
+
+- `Patch()`
+
+- `Options()` 
+
+- `Any()`  包含请求 GET, POST, PUT, PATCH, HEAD, OPTIONS, DELETE, CONNECT, TRACE.
+
+- `Group()` 组
+
+- `Use()` 中间件
+
+- `Prepare() ` 上述方法执行前执行 
+
+- `Finish()` 在执行上述方法之后执行 
+
+
+##### 可用属性
+
+###### Ctx 用法参考 gin.Context
+
+```go
+type Controller struct {
+	Ctx  *gin.Context
+}
+```
+
+##### 可调用方法
+
+###### 获取组名
+
+```go
+func (c *Controller) GetGroup() string
+```
+
+###### 获取控制器名称
+
+```go
+func (c *Controller) GetController() string
+```
+
+###### 获取操作名称
+
+```go
+func (c *Controller) GetAction() string
+```
+
 ## SOCKETIO应用
+
 
 ## CMD应用
 
