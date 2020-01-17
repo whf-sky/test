@@ -615,6 +615,8 @@ func (this *IndexController) Get() {
 }
 ```
 
+##### 结构体定义必须内嵌`gsigo.Controller`结构体 
+
 ##### 可定义的Action，参考gin
 
 - `Get()`
@@ -674,6 +676,111 @@ func (c *Controller) GetAction() string
 
 ## SOCKETIO应用
 
+##### 示例
+
+```go
+package chat
+
+import (
+	"fmt"
+	"github.com/whf-sky/gsigo"
+)
+
+type MsgEvent struct {
+	gsigo.Event
+}
+
+func (this *MsgEvent) Execute() {
+	this.Conn.Emit("reply", "have "+this.GetMessage())
+}
+```
+##### 结构体定义必须内嵌`gsigo.Event`结构体
+
+##### `Execute` 执行方法
+
+##### 可用属性
+
+###### Ctx 用法参考 gin.Context
+
+```go
+type Event struct {
+	//是否发送ack
+	Ack bool
+	//socket 链接用法参考 socketio.Conn
+	Conn socketio.Conn
+	//事件类型 connect/event/errordisconnect
+	EventType string
+}
+```
+
+##### 可定义的方法
+
+- `Prepare()` 在执行 `Execute` 前执行
+
+- `Finish()` 在执行 `Execute` 后执行
+
+##### 可调用方法
+
+###### 绑定业务用户
+
+```go
+func (e *Event) SetUser(uid string)
+```
+
+###### 获取业务用户
+
+```go
+func (e *Event) GetUser() string
+```
+
+###### 根据用户获取所有的链接编号,map[Conn.ID()]无意义占位符
+
+```go
+func (e *Event) GetCidsByUser(uid string) map[string]int
+```
+
+###### 是否ACK消息
+
+```go
+func (e *Event) IsAck() bool
+```
+
+###### 获取消息
+
+```go
+func (e *Event) GetMessage() string
+```
+
+###### 设置ACK消息
+
+```go
+func (e *Event) SetAckMsg(msg string)
+```
+
+
+###### 获取ACK消息
+
+```go
+func (e *Event) GetAckMsg() string
+```
+
+###### 获取命名空间
+
+```go
+func (e *Event) GetNamespace() string
+```
+
+###### 设置错误消息
+
+```go
+func (e *Event) SetError(text string)
+```
+
+###### 获取错误消息
+
+```go
+func (e *Event) GetError() error
+```
 
 ## CMD应用
 
