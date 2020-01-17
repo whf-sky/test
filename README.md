@@ -344,7 +344,23 @@ gsigo.Config.Log.params["priority"]
 ````
 
 ### REDIS配置文件
+```ini
+;分组
+[redis]
+address = 127.0.0.1:6379
+password =
+select = 0
+keep_alive = 10
+max_idle = 10
 
+master.address = 127.0.0.1:6379
+master.max_idle = 10
+
+slave.max_idle = 10
+slave.address[] = 127.0.0.1:6379
+slave.address[] = 127.0.0.1:6379
+slave.address[] = 127.0.0.1:6379
+```
 
 ### 数据库配置文件
 
