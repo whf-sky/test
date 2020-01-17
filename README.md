@@ -1037,3 +1037,7 @@ func (r *Redis) Script(keyCount int, src string) *script
 ```sh
 $ go run main.go -env=develop
 ````
+
+```sh
+$ export gsigo_env=develop
+````
