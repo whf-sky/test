@@ -33,7 +33,7 @@ https://github.com/gomodule/redigo/redis
 
 ## 安装
 
-1. 首先需要安装 [Go](https://golang.org/) (**version 1.10+**), 可以使用下面的命令进行安装 Gsigo.
+###### 1. 首先需要安装 [Go](https://golang.org/) (**version 1.10+**), 可以使用下面的命令进行安装 Gsigo.
 
 ```sh
 $ go get github.com/whf-sky/gsigo
