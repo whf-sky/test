@@ -165,7 +165,7 @@ App 配置
 
 - app.name
 
-###### 应用名称，默认是 gsigo。
+###### 应用名称，默认值`gsigo`。
 
 ###### 配置文件中设置
 
@@ -181,7 +181,7 @@ gsigo.Config.APP.Name
 
 - app.debug
 
-###### 应用debug，默认是 true。
+###### 应用debug，默认值`true`。
 
 ###### 配置文件中设置
 
@@ -198,7 +198,7 @@ gsigo.Config.APP.Debug
 
 - app.host
 
-###### 应用HOST，默认是 0.0.0.0
+###### 应用HOST，默认值`0.0.0.0`
 
 ###### 配置文件中设置
 
@@ -214,7 +214,7 @@ gsigo.Config.APP.Host
 
 - app.port
 
-###### 应用PORT，默认是 8080。
+###### 应用PORT，默认值 `8080`。
 
 ###### 配置文件中设置
 
@@ -230,9 +230,10 @@ gsigo.Config.APP.Port
 
 - app.mode
 
-###### 应用模式，默认是 default(默认：gin+socketio)。
-
 `default` `gin` `cmd`
+
+###### 应用模式，默认值 `default`(默认：gin+socketio)。
+
 
 ###### 配置文件中设置
 
@@ -248,9 +249,9 @@ gsigo.Config.APP.Mode
 
 SOCKETIO配置
 
-- **socket.ping_timeout**
+- socket.ping_timeout
 
-###### ping 超时时间，默认是 60。
+###### ping 超时时间，默认值 `60`。
 
 ###### 配置文件中设置
 
@@ -267,7 +268,7 @@ gsigo.Config.Socket.PingTimeout
 
 - **socket.ping_interval**
 
-###### ping 时间间隔，默认是 20。
+###### ping 时间间隔，默认值 `20`。
 
 ###### 配置文件中设置
 
@@ -285,9 +286,10 @@ gsigo.Config.Socket.PingInterval
 
 - log.hook
 
-###### 日志钩子，默认是 `default`，可自定义钩子。
 
 `default` `syslog`
+
+###### 日志钩子，默认值 `default`，可自定义钩子。
 
 ###### 配置文件中设置
 
@@ -303,9 +305,9 @@ gsigo.Config.Log.Hook
 
 - log.formatter
 
-###### 日志输出格式，默认是 `text`。
-
 `text` `json`
+
+###### 日志输出格式，默认值 `text`。
 
 ###### 配置文件中设置
 
@@ -322,9 +324,9 @@ gsigo.Config.Log.Formatter
 
 - log.params
 
-###### 日志需要的参数，无默认值.
-
 `text` `json`
+
+###### 日志需要的参数，无默认值.
 
 ###### 配置文件中设置,syslog例子
 
