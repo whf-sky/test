@@ -22,7 +22,10 @@ https://github.com/gomodule/redigo/redis
     - [应用配置文件](#应用配置文件)
     - [REDIS配置文件](#Redis配置文件)
     - [数据库配置文件](#数据库配置文件)
-- [路由规则](#路由规则)  
+- [路由规则](#路由规则)
+    - [WEB路由规则](#WEB路由规则)
+    - [SOCKETIO路由规则](#SOCKETIO路由规则)  
+    - [CMD路由规则](#CMD路由规则)  
 - [WEB应用](#WEB应用)  
 - [SOCKETIO应用](#SOCKETIO应用)
 - [CMD应用](#CMD应用)  
@@ -414,6 +417,61 @@ slave.dsn[] = root:password@tcp(host:port)/database?charset=utf8&parseTime=True&
 ```
 
 ## 路由规则
+
+### WEB路由规则
+
+
+- 分组
+
+```go
+gsigo.Group("url路径")
+```
+
+###### 示例
+
+```go
+
+package routers
+
+import (
+	"github.com/whf-sky/gsigo"
+	"test/controllers/web/index"
+)
+
+func init()  {
+	rootGin := gsigo.Group("/root/")
+	{
+		rootGin.GET("/", &index.IndexController{})
+	}
+}
+```
+
+- 使用中间件
+
+```go
+gsigo.Use(func(c *gin.Context) {
+	//代码
+})
+```
+
+- 静态文件路由规则
+
+```go
+gsigo.Static("url路径", "本地目录")
+```
+
+
+
+
+### SOCKETIO路由规则
+
+
+
+
+### CMD路由规则
+
+
+
 
 ## WEB应用
 
