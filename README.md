@@ -1,8 +1,7 @@
 # Gsigo Web socketio and cmd Framework
 
-_Gsigo是一个用Go (Golang)编写的web、socketio、command框架。_
-
-_gsigo 主要基于下面的包进行了封装, 保留了原有包的用法_
+> Gsigo是一个用Go (Golang)编写的web、socketio、command框架。
+> gsigo 主要基于下面的包进行了封装, 保留了原有包的用法
 
 https://github.com/gin-gonic/gin
 
